@@ -1,0 +1,436 @@
+.hidden {
+    display: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    background: #F7F1E6; /* Light Soft Parchment: Main Grounded Canvas Base */
+    color: #3E4A3C; /* Deep Safari Green: Solid, organic text readability contrast */
+    overflow-x: hidden;
+}
+
+/* Tactile multi-gradient mapping to create an organic, non-boring exploratory backdrop */
+.page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 25%, rgba(205, 170, 125, 0.4), transparent 45%), /* Sunbaked Khaki Clay */
+        radial-gradient(circle at 85% 15%, rgba(139, 107, 78, 0.15), transparent 35%), /* Earthy Roast Leather */
+        radial-gradient(circle at 50% 85%, rgba(62, 74, 60, 0.2), transparent 45%), /* Deep Safari Green */
+        linear-gradient(135deg, #F7F1E6 0%, #E7D6B7 70%, #DFCEAE 100%); /* Sandy Silk Core Line */
+}
+
+/* Ambient organic cloud-burst rings dancing beneath active user containers */
+.gradient-circle {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(100px);
+    opacity: 0.5;
+}
+
+.circle-1 {
+    width: 350px;
+    height: 350px;
+    background: #CDAA7D; /* Antique Khaki Sand */
+    top: 6%;
+    left: -5%;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    background: #8B6B4E; /* Earthy Raw Sienna */
+    top: 22%;
+    right: -5%;
+}
+
+.circle-3 {
+    width: 250px;
+    height: 250px;
+    background: #3E4A3C; /* Deep Safari Green */
+    bottom: 8%;
+    left: 38%;
+}
+
+.app-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 56px 0 30px;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid rgba(139, 107, 78, 0.4); /* Raw Leather binding line */
+    border-radius: 999px;
+    background: #F7F1E6; /* Cream Parchment plate */
+    color: #8B6B4E; /* Roast Leather badge accent text */
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(139, 107, 78, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+/* CHANGED: High-contrast, rich Earthy Roast-Leather to Safari-Green Title gradient */
+.hero-section h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #2A3329 10%, #3E4A3C 50%, #8B6B4E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 2px 4px rgba(62, 74, 60, 0.04));
+}
+
+/* Balanced, low-fatigue explorer subheading text field */
+.hero-section p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #534537; /* Warm Muted Walnut body text */
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+/* CHANGED: User entry panel configured using a textured, premium Warm Sand & Clay finish */
+.planner-card {
+    background: rgba(231, 214, 183, 0.75); /* Sand Silk Base */
+    border: 1px solid rgba(139, 107, 78, 0.35); /* Solid leather-tinted framing */
+    box-shadow: 0 20px 50px rgba(139, 107, 78, 0.12);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 28px;
+}
+
+/* CHANGED: Itinerary output area distinctively switches to a Deep Safari Moss Green block */
+.result-section {
+    background: rgba(62, 74, 60, 0.93); /* Dark Forest Green protective slate shell */
+    border: 1px solid rgba(205, 170, 125, 0.4); /* Sand Gold contrast highlights border */
+    box-shadow: 0 24px 60px rgba(42, 51, 41, 0.3);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    margin-top: 26px;
+    padding: 28px;
+}
+
+.card-header,
+.result-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.card-header h2 {
+    font-size: 1.45rem;
+    margin-bottom: 8px;
+    color: #2A3329; /* Deep Grounded Timber text */
+    font-weight: 800;
+}
+
+/* Result panel header explicitly shifts to high-contrast Parchment for deep readability */
+.result-header h2 {
+    font-size: 1.45rem;
+    margin-bottom: 8px;
+    color: #F7F1E6; /* Crisp warm white header text */
+    font-weight: 800;
+}
+
+.card-header p {
+    color: #534537;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.result-header p {
+    color: #E7D6B7; /* Light Sand Gold description string text */
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.status-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F7F1E6;
+    color: #3E4A3C; /* Safari Moss text accent */
+    border: 1px solid rgba(139, 107, 78, 0.4);
+    padding: 8px 13px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8B6B4E; /* Grounded Sienna Leather indicator */
+    box-shadow: 0 0 12px #8B6B4E;
+}
+
+.input-area {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: stretch;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+    border: 1px solid rgba(139, 107, 78, 0.4);
+    border-radius: 22px;
+    background: #F7F1E6; /* Clean Paper-White Ivory internal workspace */
+    color: #2A3329;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+textarea:focus {
+    border-color: #8B6B4E; 
+    box-shadow: 0 0 0 4px rgba(139, 107, 78, 0.15);
+}
+
+textarea::placeholder {
+    color: #8B6B4E;
+    opacity: 0.5;
+}
+
+/* CHANGED: Rugged Earth-to-Forest tactile execution action trigger button button */
+#sendBtn {
+    min-width: 170px;
+    border: none;
+    border-radius: 22px;
+    padding: 0 24px;
+    background: linear-gradient(135deg, #8B6B4E 0%, #68503A 50%, #3E4A3C 100%);
+    color: #F7F1E6; /* High contrast text label */
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(139, 107, 78, 0.3);
+    transition: 0.25s ease;
+}
+
+#sendBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(62, 74, 60, 0.45);
+}
+
+#sendBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.quick-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* Prompts styled as hand-stitched travel capsule toggles */
+.quick-prompts button {
+    border: 1px solid rgba(139, 107, 78, 0.35);
+    background: #F7F1E6;
+    color: #3E4A3C;
+    border-radius: 999px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(139, 107, 78, 0.05);
+    transition: 0.2s ease;
+}
+
+.quick-prompts button:hover {
+    background: #CDAA7D; /* Antique Khaki Sand over-lay */
+    border-color: #8B6B4E;
+    color: #F7F1E6;
+}
+
+.result-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.copy-btn,
+.download-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: 0.25s ease;
+}
+
+.copy-btn {
+    border: 1px solid rgba(205, 170, 125, 0.5);
+    background: rgba(257, 241, 230, 0.1);
+    color: #F7F1E6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.copy-btn:hover {
+    background: rgba(205, 170, 125, 0.2);
+    border-color: #CDAA7D;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #CDAA7D, #8B6B4E); /* Sunlit Khaki-to-Leather workflow run transition */
+    color: #F7F1E6;
+    box-shadow: 0 8px 20px rgba(139, 107, 78, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 25px rgba(205, 170, 125, 0.45);
+}
+
+.pdf-content {
+    background: #F7F1E6; /* Traditional organic soft parchment look configuration parameters for exported PDFs */
+    color: #2A3329;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: inset 0 0 0 1px rgba(139,107,78,0.1);
+}
+
+.pdf-title {
+    display: none;
+    color: #2A3329;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.result-box {
+    background: #F7F1E6;
+    color: #2A3329;
+    border: none;
+    padding: 0;
+    white-space: normal;
+    overflow-x: auto;
+}
+
+.result-box h1,
+.result-box h2,
+.result-box h3 {
+    color: #1A2219;
+    margin-top: 26px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.result-box h1:first-child,
+.result-box h2:first-child,
+.result-box h3:first-child {
+    margin-top: 0;
+}
+
+.result-box h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid #8B6B4E; /* Rugged Sienna accent line break rules */
+    padding-bottom: 10px;
+}
+
+.result-box h2 {
+    font-size: 1.45rem;
+    border-left: 5px solid #3E4A3C; /* Safari Moss-Green vertical side tracking pin */
+    padding-left: 12px;
+    background: #E7D6B7; /* Light Sand Gold container tint block */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.result-box h3 {
+    font-size: 1.15rem;
+    color: #3E4A3C;
+}
+
+.result-box p {
+    margin-bottom: 14px;
+    line-height: 1.75;
+    color: #2A3329;
+}
+
+.result-box ul,
+.result-box ol {
+    margin: 10px 0 18px 24px;
+    color: #2A3329;
+}
+
+.result-box li {
+    margin-bottom: 8px;
+    line-height: 1.65;
+}
+
+.result-box strong {
+    color: #1A2219;
+    font-weight: 800;
+}
+
+.result-box hr {
+    border: none;
+    border-top: 1px solid #E7D6B7;
+    margin: 24px 0;
+}
+
+.result-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    color: #2A3329;
+}
+
+.result-box th,
+.result-box td {
+    border: 1px solid #E7D6B7;
+    padding: 10px;
+    text-align: left;
+}
+
+.result-box th {
+    background: #E7D6B7;
+    color: #1A2219;
+    font-weight: 800;
+}
+
+.error-box {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: #FFF5F5;
+    border: 1px solid #FEB2B2;
+    color: #C53030;
+    line-height: 1.5;
+}
+
+.loader {
+display: inline-block;width: 18px;height: 18px;border: 3px solid rgba(247, 241, 230, 0.4);border-top-color: #F7F1E6;border-radius: 50%;animation: spin 0.85s linear infinite;}footer {text-align: center;color: #8B6B4E;font-weight: 600;opacity: 0.7;padding: 30px 16px 40px;font-size: 0.92rem;}@keyframes spin {to {transform: rotate(360deg);}}
+@media print {body {background: #ffffff;}.planner-card,.hero-section,footer,.result-actions,#threadInfo {display: none;}.result-section {box-shadow: none;border: none;background: #ffffff;}.pdf-title {display: block;}}
+@media (max-width: 760px) {.app-container {padding-top: 34px;}.planner-card,.result-section {padding: 20px;border-radius: 22px;}.input-area {grid-template-columns: 1fr;}#sendBtn {padding: 14px 24px;}}
